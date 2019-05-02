@@ -39,7 +39,17 @@ export let dom = {
             var c = document.createElement("span");
             c.textContent = `${board.title}`;
             c.className = 'board-title';
+            var addNew = document.createElement("button");
+            addNew.textContent = 'Add Card';
+            addNew.className = 'board-add';
+            var toggle = document.createElement("button");
+            toggle.className = 'board-toggle';
+             var im = document.createElement("i");
+            im.className = 'fas fa-chevron-down';
+            toggle.appendChild(im);
             b.appendChild(c);
+            b.appendChild(addNew);
+            b.appendChild(toggle);
             document.querySelector('#boards').appendChild(a);
         }
 
@@ -110,13 +120,7 @@ export let dom = {
 
 
         for (let card of cards) {
-            var d = document.createElement("div");
-            d.className = 'board-columns';
-
-
             if (card.status_id === 'new') {
-
-
                 var h = document.createElement("div");
                 h.className = 'card';
                 var i = document.createElement("div");
@@ -126,14 +130,10 @@ export let dom = {
                 h.appendChild(i);
                 g.appendChild(h);
                 e.appendChild(g)
-
-
             }
 
 
             if (card.status_id === 'in progress') {
-
-
                 var h1 = document.createElement("div");
                 h1.className = 'card';
                 var i1 = document.createElement("div");
@@ -143,14 +143,10 @@ export let dom = {
                 h1.appendChild(i1);
                 g1.appendChild(h1);
                 e1.appendChild(g1);
-
-
             }
 
 
             if (card.status_id === 'testing') {
-
-
                 var h2 = document.createElement("div");
                 h2.className = 'card';
                 var i2 = document.createElement("div");
@@ -160,14 +156,10 @@ export let dom = {
                 h2.appendChild(i2);
                 g2.appendChild(h2);
                 e2.appendChild(g2);
-
-
             }
 
 
             if (card.status_id === 'done') {
-
-
                 var h3 = document.createElement("div");
                 h3.className = 'card';
                 var i3 = document.createElement("div");
@@ -177,8 +169,6 @@ export let dom = {
                 h3.appendChild(i3);
                 g3.appendChild(h3);
                 e3.appendChild(g3);
-
-
             }
 
 
