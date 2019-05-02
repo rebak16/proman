@@ -20,7 +20,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: boards; Type: TABLE; Schema: public; Owner: kruppa
+-- Name: boards; Type: TABLE; Schema: public;
 --
 
 CREATE TABLE public.boards (
