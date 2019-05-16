@@ -404,4 +404,5 @@
     }, {}, [1])(1)
 });
 
-dragula([document.getElementById('left'), document.getElementById('right')]);
+dragula([document.getElementById('lii'),
+    document.getElementById('inProgressCard')]);

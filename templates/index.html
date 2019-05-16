@@ -21,22 +21,45 @@
           integrity="sha384-u5J7JghGz0qUrmEsWzBQkfvc8nK3fUT7DCaQzNQ+q4oEXhGSx+P2OqjWsfIRB8QT" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/design1.css') }}">
     <script type="module" src="{{ url_for('static', filename='js/main.js') }}" defer></script>
-    <script type="module" src="{{ url_for('static', filename='js/toggle.js') }}" defer></script>
+    <script type="module" src="{{ url_for('static', filename='js/modal.js') }}" defer></script>
+
 </head>
 <body>
+<div class="modal-bg">
+    <div class="modal">
+
+<form class="registrat" action="/registration" method="post">
+    <label for="username">Username:</label>
+    <p><input type="text" name="username" required></p>
+    <label for="password">Password:</label>
+    <p><input type="password" name="password" required></p>
+    <label for="confirm_password">Confirm password:</label>
+    <p><input type="password" name="confirm_password" required></p>
+    <button class="reg" type="submit">Register</button>
+    {% if invalid_confirm_pw %}
+        {{ invalid_confirm_pw }}
+    {% endif %}
+    {% if invalid_username %}
+        {{ invalid_username }}
+    {% endif %}
+</form>
+    </div>
+</div>
+<div>
+    <table>
+        <tr>
+            {% if session['username'] %}
+                <td><a href="/logout">Logout</a></td>
+                <td>Logged in as {{ session['username'] }}.</td>
+            {% else %}
+                <td class="regi">Register</a></td>
+                <td><a href="/login">Login</a></td>
+                <td>You are not logged in.</td>
+            {% endif %}
+        </tr>
+    </table>
+</div>
 <h1>ProMan</h1>
 <div id="boards">Boards are loading...</div>
-<div class="wrapper">
-  <div id="left" class="container">
-    <div>Item 1</div>
-    <div>Item 2</div>
-    <div>Item 3</div>
-  </div>
-  <div id="right" class="container">
-    <div>Item 4</div>
-    <div>Item 5</div>
-    <div>Item 6</div>
-  </div>
-</div>
 </body>
 </html>

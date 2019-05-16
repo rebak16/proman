@@ -156,3 +156,75 @@ a {
   color: black;
   cursor: move;
 }
+.card {
+    user-drag: none;
+user-select: none;
+-moz-user-select: none;
+-webkit-user-drag: none;
+-webkit-user-select: none;
+-ms-user-select: none;
+}
+
+.modal-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    visibility: hidden;
+}
+
+.bg-active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal {
+    background-color: rgb(245,245,245);
+    width: 40%;
+    height: 80%;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+
+}
+
+.modal-bg2 {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    visibility: hidden;
+}
+
+.bg-active2 {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal2 {
+    background-color: rgb(245,245,245);
+    width: 40%;
+    height: 80%;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+
+}

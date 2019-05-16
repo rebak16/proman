@@ -1,22 +1,9 @@
 // It uses data_handler.js to visualize elements
 import {dataHandler} from "./data_handler.js";
 
+
 export let dom = {
-    _appendToElement: function (elementToExtend, textToAppend, prepend = false) {
-        // function to append new DOM elements (represented by a string) to an existing DOM element
-        let fakeDiv = document.createElement('div');
-        fakeDiv.innerHTML = textToAppend.trim();
 
-        for (let childNode of fakeDiv.childNodes) {
-            if (prepend) {
-                elementToExtend.prependChild(childNode);
-            } else {
-                elementToExtend.appendChild(childNode);
-            }
-        }
-
-        return elementToExtend.lastChild;
-    },
     init: function () {
         // This function should run once, when the page is loaded.
     },
@@ -74,16 +61,18 @@ export let dom = {
         d.className = 'board-columns';
 
 
-        var e = document.createElement("div");
-        e.className = 'board-column';
+        var e0 = document.createElement("div");
+        e0.className = 'board-column';
+
         var j = document.createElement("div");
         j.className = 'board-column-title';
         j.textContent = 'New';
-        e.appendChild(j);
+        e0.appendChild(j);
 
 
         var e1 = document.createElement("div");
         e1.className = 'board-column';
+
         var j1 = document.createElement("div");
         j1.className = 'board-column-title';
         j1.textContent = 'In Progress';
@@ -92,6 +81,7 @@ export let dom = {
 
         var e2 = document.createElement("div");
         e2.className = 'board-column';
+
         var j2 = document.createElement("div");
         j2.className = 'board-column-title';
         j2.textContent = 'Testing';
@@ -100,6 +90,7 @@ export let dom = {
 
         var e3 = document.createElement("div");
         e3.className = 'board-column';
+
         var j3 = document.createElement("div");
         j3.className = 'board-column-title';
         j3.textContent = 'Done';
@@ -108,34 +99,42 @@ export let dom = {
 
         var g = document.createElement("div");
         g.className = 'board-column-content';
+          g.id = 'newColumn';
 
         var g1 = document.createElement("div");
         g1.className = 'board-column-content';
+                g1.id = 'inProgressColumn';
 
         var g2 = document.createElement("div");
         g2.className = 'board-column-content';
+             g2.id = 'testingColumn';
 
         var g3 = document.createElement("div");
         g3.className = 'board-column-content';
+          g3.id = 'doneColumn';
 
 
         for (let card of cards) {
             if (card.status_id === 'new') {
                 var h = document.createElement("div");
                 h.className = 'card';
+                 h.id = 'card';
+                h.ondragstart = function(){dragStart(event)};
                 var i = document.createElement("div");
                 i.className = 'card-title';
                 i.textContent = `${card.title}`;
 
                 h.appendChild(i);
                 g.appendChild(h);
-                e.appendChild(g)
+                e0.appendChild(g)
             }
 
 
             if (card.status_id === 'in progress') {
                 var h1 = document.createElement("div");
                 h1.className = 'card';
+                 h1.id = 'card';
+                h1.ondragstart = function(){dragStart(event)};
                 var i1 = document.createElement("div");
                 i1.className = 'card-title';
                 i1.textContent = `${card.title}`;
@@ -149,6 +148,8 @@ export let dom = {
             if (card.status_id === 'testing') {
                 var h2 = document.createElement("div");
                 h2.className = 'card';
+                h2.id = 'card';
+                h2.ondragstart = function(){dragStart(event)};
                 var i2 = document.createElement("div");
                 i2.className = 'card-title';
                 i2.textContent = `${card.title}`;
@@ -162,6 +163,8 @@ export let dom = {
             if (card.status_id === 'done') {
                 var h3 = document.createElement("div");
                 h3.className = 'card';
+                 h3.id = 'card';
+                h3.ondragstart = function(){dragStart(event)};
                 var i3 = document.createElement("div");
                 i3.className = 'card-title';
                 i3.textContent = `${card.title}`;
@@ -172,7 +175,7 @@ export let dom = {
             }
 
 
-            d.appendChild(e);
+            d.appendChild(e0);
             d.appendChild(e1);
             d.appendChild(e2);
             d.appendChild(e3);
@@ -180,7 +183,10 @@ export let dom = {
 
             document.querySelector(`#boardid${card.board_id}`).appendChild(d);
         }
+
     }
     // here comes more features
 
 };
+
+
